@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fondo">
     <MainMenu></MainMenu>
     Este es My Código
     <!-- <button @click="addStudent">Agregar estudiante</button>
@@ -97,10 +97,10 @@ export default {
     },
 
     addStudent: function () {
-
       let encontrado = false;
 
       for (let i = 0; i < this.estudiantes.length; i++) {
+
         if (this.estudianteNuevo.id == this.estudiantes[i].id) {
           encontrado = true;
         }
@@ -126,4 +126,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.fondo{
+  background-color: black;
+}
+</style>
