@@ -6,7 +6,8 @@
             :nombre="pokemon.nombre"
             :color="pokemon.type_color"
             :imagen="pokemon.imagen"
-            :tipo="pokemon.type_name"></PokemonComponent>
+            :tipo="pokemon.type_name"
+            :disponible="pokemon.disponible"></PokemonComponent>
     </div>
   </div>
 </template>
@@ -28,24 +29,17 @@ export default {
       await this.axios
         .get(url)
         .then(function (response) {
-          // manejar respuesta exitosa
           console.log("ESTOS SON LOS DATOS");
           console.log(response.data);
-        
           console.log("STATUS");
           console.log(response.status);
-
           vue.pokemones = response.data;
-
-
         })
         .catch(function (error) {
-          // manejar error
           console.log(error);
         })
         .finally(function () {
             console.log("Proceso terminado");
-          // siempre sera executado
         });
     },
   },

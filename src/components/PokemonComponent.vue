@@ -1,5 +1,8 @@
 <template>
   <div class="card">
+    <span v-if="disponible == 1" class="disponibilidad dispon-si">Disponible</span>
+    <span v-else class="disponibilidad dispon-no">No Disponible</span>
+
     <img :src="imagen" alt="" />
     <h4>{{ nombre }}</h4>
     <span :style="{
@@ -25,7 +28,8 @@ export default {
     imagen: String,
     nombre: String,
     tipo: String,
-    color: String
+    color: String,
+    disponible: Number
   }
 };
 </script>
@@ -42,12 +46,30 @@ export default {
     border: solid red 2px;
 }
 
+.disponibilidad{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  padding: 5px;
+  border-radius: 10%;
+}
+
+.dispon-si{
+  background-color: green;
+}
+
+.dispon-no{
+  background-color: red;
+}
+
 .card {
     display: flex;
     flex-direction: column;
     height: 370px;
     width: 100%;
     justify-content: space-between;
+    position: relative;
 }
 
 img{
